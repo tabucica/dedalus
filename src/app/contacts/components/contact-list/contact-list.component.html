@@ -1,0 +1,21 @@
+<table class="contacts-table">
+    <thead>
+        <tr>
+            <th class="contacts-table-cell" *ngFor="let column of columns">
+                {{column}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let contact of contacts$ | async">
+            <tr [ngClass]="{'highlight': contact.id === (currentContact$ | async)?.id}" (click)="onRowSelected(contact)">
+                <td class="contacts-table-cell">{{contact.firstName}}</td>
+                <td class="contacts-table-cell">{{contact.lastName}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+<ng-container *ngIf="currentContact$ | async as currentContact">
+    <app-contact-detail [contact]="currentContact"></app-contact-detail>
+</ng-container>
+<app-contact-create></app-contact-create>

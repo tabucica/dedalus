@@ -1,0 +1,40 @@
+<form style="margin-top: 20px;" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <fieldset>
+        <fieldset class="form-group">
+            <input
+                type="text"
+                placeholder="First name"
+                formControlName="firstName"
+            />
+        </fieldset>
+        <fieldset class="form-group">
+            <input
+                type="text"
+                placeholder="Last name"
+                formControlName="lastName"
+            />
+        </fieldset>
+        <fieldset class="form-group">
+            <input
+                type="text"
+                placeholder="Phone"
+                formControlName="phone"
+            />
+        </fieldset>
+        <fieldset class="form-group">
+            <input
+                type="text"
+                placeholder="Email"
+                formControlName="email"
+            />
+        </fieldset>
+        <fieldset class="form-group">
+            <input
+                type="text"
+                placeholder="Address"
+                formControlName="address"
+            />
+        </fieldset>
+        <button type="submit">Add new contact</button>
+    </fieldset>
+</form>
