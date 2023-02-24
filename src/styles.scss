@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.contacts-table {
+    table-layout: fixed;
+    width: 80%;
+    border-collapse: collapse;
+}
+.contacts-detail-table {
+    table-layout: fixed;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+.contacts-table-cell {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.contact-detail {
+    margin-top: 20px;
+}
+
+.highlight {
+    background: #42A948;
+}
