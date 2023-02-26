@@ -16,8 +16,8 @@ export class LoadContactsEffect {
           map((contacts: Contact[]) => {
             return loadSuccessAction({contacts})
           }),
-          catchError(() => {
-            return of(loadFailureAction())
+          catchError((error: string) => {
+            return of(loadFailureAction({error: error}))
           })
         )
       })

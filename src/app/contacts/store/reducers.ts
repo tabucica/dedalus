@@ -6,10 +6,11 @@ import { ContactsState } from "./store-models/contacts-state"
 
 const initialState: ContactsState = {
     isLoading: false,
+    error: '',
     currentContact: null,
     data: []
   }
-const contactsReducer = createReducer(
+export const contactsReducer = createReducer(
     initialState,
     on(
         loadAction,
@@ -28,9 +29,10 @@ const contactsReducer = createReducer(
     ),
     on(
         loadFailureAction,
-        (state): ContactsState => ({
+        (state, action): ContactsState => ({
             ...state,
             isLoading: false,
+            error: action.error
         })
     ),
     on(

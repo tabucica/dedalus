@@ -11,4 +11,5 @@ export const loadSuccessAction = createAction(
 )
 export const loadFailureAction = createAction(
     ActionTypes.LOAD_FAILURE,
+    props<{error: string}>()
 )
