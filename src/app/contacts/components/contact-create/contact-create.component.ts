@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/store-models/app-state';
 import { Contact } from '../../models/contact';
@@ -19,19 +19,19 @@ export class ContactCreateComponent implements OnInit {
   }
   initializeForm(): void {
     this.form = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', Validators.required],
-      address: ['', Validators.required],
+      firstName: [''],
+      lastName: [''],
+      phone: [''],
+      email: [''],
+      address: [''],
     })
   }
 
   onSubmit(): void {
-    const payload: Contact = {
+    const newContact: Contact = {
       ...this.form.value,
-      id:  Math.floor((Math.random() * 100)+100).toString(),
+      id:  this.form.value['firstName'] + '_' + this.form.value['lastName'],
     }
-    this.store.dispatch(addContactAction({contact: payload}));
+    this.store.dispatch(addContactAction({contact: newContact}));
   }
 }

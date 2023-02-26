@@ -15,7 +15,6 @@ import { selectFeatureContactsData, selectFeatureCurrentContact } from '../../st
 })
 export class ContactListComponent implements OnInit {
   contacts$: Observable<Contact[]>;
-  columns: Array<string> = ['First name', 'Last name'];
   currentContact$: Observable<Contact | null>;
   constructor(private store: Store<AppState>){
   }
